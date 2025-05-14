@@ -14,6 +14,7 @@ import tokenUtils from '../../utils/tokenUtils';
 
 // Initial state
 const initialState: AuthState = {
+  // isAuthenticated: tokenUtils.hasToken() && !tokenUtils.isTokenExpired(),
   isAuthenticated: tokenUtils.hasToken() && !tokenUtils.isTokenExpired(),
   user: null,
   loading: false,
