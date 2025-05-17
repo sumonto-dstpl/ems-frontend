@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { loginWithGoogle, resetAuthError } from '../store/slices/authSlice';
+import { loginWithGoogle, redirectToGoogle, resetAuthError } from '../store/slices/authSlice';
 import { AppDispatch, RootState } from '../store';
 import { Helmet } from 'react-helmet';
 import AuthLayout from './layout/AuthLayout';
@@ -53,6 +53,7 @@ const Login: React.FC = () => {
   const handleGoogleLogin = () => {
     // Use the loginWithGoogle action which now uses environment variables
     dispatch(loginWithGoogle());
+    // redirectToGoogle()
   };
 
   return (

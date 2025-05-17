@@ -14,8 +14,8 @@ import tokenUtils from '../../utils/tokenUtils';
 
 // Initial state
 const initialState: AuthState = {
-  // isAuthenticated: tokenUtils.hasToken() && !tokenUtils.isTokenExpired(),
   isAuthenticated: tokenUtils.hasToken() && !tokenUtils.isTokenExpired(),
+  // isAuthenticated: true,
   user: null,
   loading: false,
   error: null,
@@ -32,7 +32,7 @@ export const loginWithGoogle = createAsyncThunk(
   async (_: void, { rejectWithValue }: { rejectWithValue: (value: string) => any }) => {
     try {
       // Use environment variable instead of hardcoded URL
-      const authUrl = process.env.REACT_APP_GOOGLE_AUTH_URL || '/auth/login';
+      const authUrl = process.env.REACT_APP_GOOGLE_AUTH_URL || '/api/auth/login';
       window.location.href = authUrl;
       return null;
     } catch (error) {
@@ -40,6 +40,10 @@ export const loginWithGoogle = createAsyncThunk(
     }
   }
 );
+export const redirectToGoogle = () => {
+  const authUrl = process.env.REACT_APP_GOOGLE_AUTH_URL || '/api/auth/login';
+  window.location.href = authUrl;
+};
 
 export const loginUser = createAsyncThunk(
   'auth/loginUser',

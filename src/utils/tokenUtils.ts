@@ -46,6 +46,7 @@ class TokenUtils {
    */
   hasToken(): boolean {
     return !!this.getAccessToken();
+    // return true
   }
 
   /**
@@ -87,6 +88,7 @@ class TokenUtils {
       console.error('Error checking token expiration', e);
       return true;
     }
+    // return false;
   }
 
   /**
